@@ -1,13 +1,5 @@
 import paramiko
 
-def main():
-    bold = "\033[1m"
-    white = "\033[0m"
-
-    print(bold + "HOlaaaaaaaaa" + white)
-
-    
-
 def execute_command(client, command):
 
     channel = client.get_transport().open_session()
@@ -16,6 +8,12 @@ def execute_command(client, command):
 
     output = channel.recv(1024).decode('utf-8')
     return output
+
+def linea(n=1):
+    result = "------------------------"
+    for i in range(n-1):
+        result+= "------------------------\n"
+    return result
 
 def clear_prompt():
     
@@ -37,7 +35,7 @@ def bold(string):
     white = "\033[0m"
     return bold + string + white
 
-def main2():
+def main():
 
     client = paramiko.SSHClient()
 
@@ -81,7 +79,7 @@ def main2():
     print("Tras esto, veremos si hay algun archivo dentro del directorio:")
     print(f"Ejecutaremos {bold('ls')}.")
     print(linea())
-    print(execute_command(client, 'cd inhere | ls'))
+    print(execute_command(client, 'cd inhere; ls'))
     print(linea())
 
     wait_clear()
@@ -89,7 +87,7 @@ def main2():
     print("Como vemos, no aparece nada, eso es por que el archivo esta oculto, eso quiere decir que tendremos que hacerle especificaciones a ls.")
     print(f"Usaremos el comando {bold('ls -a')}, la a siendo de absoluto, lo cual nos permitira acceder a los archivos ocultos.")
     print(linea())
-    print(execute_command(client, 'cd inhere | ls -a'))
+    print(execute_command(client, 'cd inhere; ls -a'))
     print(linea())
 
     wait_clear()
@@ -103,12 +101,7 @@ def main2():
     wait_clear()
 
 
-def linea(n=1):
-    result = "------------------------"
-    for i in range(n-1):
-        result+= "------------------------\n"
-    return result
 
 
 if __name__=='__main__':
-    main2()
+    main()
