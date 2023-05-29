@@ -28,7 +28,7 @@ def main2():
     print("Estaremos implementando el ejercicio de bandit3 --> bandit4")
     print(linea())
     print("La consigna es la siguiente:")
-    print("- La contraseña del siguiente nivel esta almazenada en una archivo oculto dentro del directorio 'inhere'")
+    print("- La contraseña del siguiente nivel esta almacenada en una archivo oculto dentro del directorio 'inhere'")
     print("Para esto haremos la conexion atraves de la libreria paramiko de python")
     print("Nos conectaremos atraves del protocolo SSH, para esto requerimos el nombre del host, el puerto y el usuario, ademas de la contraseña")
     print(linea())
@@ -56,20 +56,20 @@ def main2():
     execute_command(client, 'cd inhere')
     print(linea())
 
-    print("Tras esto, veremos si hay algun archivo entro del directorio:")
+    print("Tras esto, veremos si hay algun archivo dentro del directorio:")
     print("Ejecutaremos ls")
     print(linea())
     print(execute_command(client, 'ls'))
     print(linea())
 
-    print("Como vemos, no aparece nada, eso es por que el archivo esta oculo, eso quiere decir que tendremos que hacerle especificaciones a ls")
+    print("Como vemos, no aparece nada, eso es por que el archivo esta oculto, eso quiere decir que tendremos que hacerle especificaciones a ls")
     print("Usaremos el comando 'ls -a', la a siendo de absoluto, lo cual nos permitira acceder a los archivos ocultos")
     print(linea())
 
     print(execute_command(client, 'ls -a'))
     print(linea())
 
-    print("Como vemos, hay un archivo que se llama .hidden, accedderemos a ese archivo con el comando cat .hidden")
+    print("Como vemos, hay un archivo que se llama .hidden, accederemos a ese archivo con el comando cat .hidden")
     print(linea())
     print(execute_command(client, 'cat .hidden'))
     print(linea())
